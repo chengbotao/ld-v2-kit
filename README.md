@@ -1,37 +1,50 @@
-# ld-v2-kit
+# ld-v2-kit (慢知行 LearnDoing)
 
-#### 介绍
-基于 Vue2 + ElementUI 的轻量级工具组件包，包含自定义 UI 组件、业务组件与常用工具类。
+## 📦 项目介绍
 
-#### 软件架构
-软件架构说明
+**ld-v2-kit** 是基于 Vue 2.6.14 + ElementUI 打造的轻量级业务组件库与工具库，为前端开发提供开箱即用的一站式解决方案。
 
+- 🎨 **丰富组件**：包含 LdTable、LdTableColumn、useDialog 等业务组件
+- 🛠️ **实用工具**：提供常用工具函数，提升开发效率
+- 📦 **易于集成**：支持按需引入，减小打包体积
+- 🔧 **灵活配置**：组件支持丰富的配置选项，满足不同业务场景
+- 🎯 **开箱即用**：完善的文档和示例，快速上手
 
-#### 安装教程
+## 🚀 安装指南
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+### 使用 npm 安装
+```bash
+# 安装依赖
+npm install ld-v2-kit --save
+```
 
-#### 使用说明
+## 📖 快速开始
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+### 全局引入
+```javascript
+import Vue from 'vue'
+import LdV2Kit from 'ld-v2-kit'
 
-#### 参与贡献
+Vue.use(LdV2Kit)
+```
 
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+### 按需引入
+```javascript
+import Vue from 'vue'
+import { LdTable, LdTableColumn, useDialog, formatDate } from 'ld-v2-kit'
 
+Vue.use(LdTable)
+Vue.use(LdTableColumn)
 
-#### 特技
+useDialog() // 引入 useDialog 函数
+formatDate('YYYY-MM-DD HH:mm:ss', new Date()) // 格式化日期
 
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+```
+
+## 📄 许可证
+
+本项目采用 MIT 许可证 - 详见 [LICENSE](LICENSE) 文件
+
+---
+
+**ld-v2-kit (慢知行 LearnDoing)** · 用心打造每一个组件，让前端开发更简单！
