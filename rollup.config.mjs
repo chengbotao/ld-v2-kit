@@ -11,6 +11,7 @@ import { terser } from "rollup-plugin-terser";
 
 const { name, version, author } = pkg;
 const outputConf = {
+    globals: { vue: 'Vue', 'element-ui': 'ELEMENT' },
     banner: `/* ${name} version ${version} */`,
     footer: `/* Follow me on GitHub! @${author} */`,
 };
@@ -33,26 +34,24 @@ export default {
     external: ["vue", "element-ui"],
     plugins: [
         clear({ targets: ["dist"] }),
-        resolve(),
+        resolve({ extensions: ['.vue', '.js', '.json'],
+            preferBuiltins: false
+         }),
+        commonjs(),
+        json(),
         vue({
             css: true,
             compileTemplate: true
         }),
         babel({
+            extensions: ['.vue', '.js'],
             babelHelpers: 'runtime',
             exclude: 'node_modules/**',
-            plugins: ['@babel/plugin-transform-runtime'],
-            presets: [['@babel/preset-env', {
-                useBuiltIns: 'usage',
-                corejs: 3,
-                targets: {
-                    browsers: ['> 1%', 'last 2 versions', 'not dead']
-                }
-            }]]
+            configFile: './babel.config.js'
         }),
-        commonjs(),
-        json(),
+
         terser({
+            ecma: 5,
             compress: {
                 drop_console: true,
                 drop_debugger: true,
