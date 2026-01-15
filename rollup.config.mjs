@@ -46,7 +46,7 @@ export default {
         }),
         babel({
             extensions: ['.vue', '.js'],
-            babelHelpers: 'runtime',
+            babelHelpers: 'bundled',
             exclude: 'node_modules/**',
             configFile: './babel.config.js'
         }),

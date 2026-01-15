@@ -11,15 +11,8 @@ module.exports = {
                 },
                 useBuiltIns: 'usage',
                 corejs: 3,
-                modules: false // 关闭模块化转换，交给Rollup处理，正确
+                modules: false
             }
         ]
-    ],
-    plugins: [
-        ['@babel/plugin-transform-runtime', {
-            corejs: 3,
-            helpers: true,
-            regenerator: true
-        }]
     ]
 }
