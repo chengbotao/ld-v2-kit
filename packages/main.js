@@ -23,12 +23,12 @@ const components = [
 
 /**
  * 安装函数
- * @param {Object} app - Vue 实例
+ * @param {Object} Vue - Vue 构造函数
  * @param {Object} options - 配置选项
  */
-const install = (app, options = {}) => {
+const install = (Vue, options = {}) => {
     components.forEach((component) => {
-        app.component(component.name, component);
+        Vue.component(component.name, component);
     });
 };
 

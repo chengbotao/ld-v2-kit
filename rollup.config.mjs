@@ -27,7 +27,8 @@ export default {
         {
             file: "dist/index.umd.js",
             format: "umd",
-            name: name,
+            name: "LDV2Kit",
+            exports: 'named',
             ...outputConf,
         },
     ],
@@ -56,7 +57,9 @@ export default {
                 drop_console: true,
                 drop_debugger: true,
                 passes: 2,
-                pure_funcs: ['console.log', 'console.warn']
+                pure_funcs: ['console.log', 'console.warn'],
+                keep_fnames: true, 
+                keep_classnames: true
             },
             output: {
                 comments: (_, comment) => {
