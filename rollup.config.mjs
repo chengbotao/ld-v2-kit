@@ -52,9 +52,9 @@ export default {
         }),
 
         terser({
-            ecma: 2018,
+            ecma: 5,
             compress: {
-                drop_console: false,
+                drop_console: true,
                 drop_debugger: true,
                 passes: 1,
                 pure_funcs: [],

@@ -1,6 +1,6 @@
 {
   "name": "ld-v2-kit",
-  "version": "1.0.7-beta.4",
+  "version": "1.0.7-beta.5",
   "description": "基于 Vue2 + ElementUI 的轻量级工具组件包，包含自定义 UI 组件、业务组件与常用工具类。",
   "main": "dist/index.umd.js",
   "module": "dist/index.esm.js",
