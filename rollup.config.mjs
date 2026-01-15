@@ -52,20 +52,27 @@ export default {
         }),
 
         terser({
-            ecma: 5,
+            ecma: 2018,
             compress: {
-                drop_console: true,
+                drop_console: false,
                 drop_debugger: true,
-                passes: 2,
-                pure_funcs: ['console.log', 'console.warn'],
+                passes: 1,
+                pure_funcs: [],
                 keep_fnames: true, 
+                keep_classnames: true,
+                keep_infinity: true,
+                reduce_vars: false
+            },
+            mangle: {
+                keep_fnames: true,
                 keep_classnames: true
             },
             output: {
                 comments: (_, comment) => {
                     const text = comment.value;
                     return text.includes('ld-v2-kit version') || text.includes('Follow me on GitHub! @');
-                }
+                },
+                beautify: false
             }
         })
     ],

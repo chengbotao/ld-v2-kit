@@ -9,12 +9,15 @@ export default {
   props: {
     componentInstance: {
       type: [Object, Function],
+      required: true,
     },
     componentProps: {
       type: Object,
+      default: () => ({}),
     },
     dialogProps: {
       type: Object,
+      default: () => ({}),
     },
   },
   data() {
