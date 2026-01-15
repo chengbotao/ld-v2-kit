@@ -1,54 +1,16 @@
 <script>
+import { ELTable, ELTableColumn, ELPagination, ElEmpty } from "element-ui";
 import { useWindowSize } from "../../mixins/useWindowSize.js";
 import LdTableColumn from "./LdTableColumn.vue";
-const LAYOUT = {
-  SMALL: "prev, pager, next, jumper, total",
-  MEDIUM: "prev, pager, next, sizes, jumper, total",
-  LARGE: "total, prev, pager, next, sizes, jumper",
-};
-
-/**
- * 表格高度计算器类
- */
-class TableHeightCalculator {
-  // 常量配置
-  static TABLE_HEADER_SPACING = 12;
-
-  constructor(options) {
-    this.options = options;
-  }
-
-  /**
-   * 计算容器高度
-   */
-  calculate() {
-    const offset = this.calculateOffset();
-    return {
-      height: offset === 0 ? "100%" : `calc(100% - ${offset}px)`,
-    };
-  }
-
-  /**
-   * 计算偏移量
-   */
-  calculateOffset() {
-    const paginationOffset = this.calculatePaginationOffset();
-    return paginationOffset + TableHeightCalculator.TABLE_HEADER_SPACING;
-  }
-
-  /**
-   * 计算分页器偏移量
-   */
-  calculatePaginationOffset() {
-    const { paginationHeight } = this.options;
-    return paginationHeight === 0 ? 0 : paginationHeight + 6;
-  }
-}
 
 export default {
   name: "LdTable",
   inheritAttrs: false,
   components: {
+    ELTable,
+    ELTableColumn,
+    ELPagination,
+    ElEmpty,
     LdTableColumn,
   },
   mixins: [useWindowSize()],
@@ -140,22 +102,12 @@ export default {
       const otherProps = this.$attrs;
       return { ...props, ...otherProps, height: this.tableHeight };
     },
-    // 响应式分页器布局
-    layout() {
-      // if (this.initialWidth < 768) {
-      //   return LAYOUT.SMALL;
-      // } else if (this.initialWidth < 1024) {
-      //   return LAYOUT.MEDIUM;
-      // } else {
-      return LAYOUT.LARGE;
-      // }
-    },
     mergedPaginationOptions() {
       const defaultOptions = {
         pageSizes: [100, 200, 300, 500, 1000],
         align: "center",
         background: true,
-        layout: this.layout,
+        layout: "total, prev, pager, next, sizes, jumper",
         hideOnSinglePage: false,
         size: "default",
         pagerCount: this.initialWidth > 1200 ? 7 : 5,
@@ -169,10 +121,11 @@ export default {
 
     containerHeight() {
       // 简化的容器高度计算
-      const calculator = new TableHeightCalculator({
-        paginationHeight: this.showPagination ? this.paginationHeight : 0,
-      });
-      return calculator.calculate();
+      const paginationHeight = this.showPagination ? this.paginationHeight : 0;
+      const offset = paginationHeight + 12;
+      return {
+        height: offset === 0 ? "100%" : `calc(100% - ${offset}px)`,
+      };
     },
     // 表格高度逻辑
     tableHeight() {
@@ -239,7 +192,7 @@ export default {
     :class="{ 'ld-table--empty': isEmpty }"
     :style="containerHeight"
   >
-    <el-table
+    <ELTable
       ref="elTableRef"
       v-loading="!!loading"
       v-bind="tableProps"
@@ -247,7 +200,7 @@ export default {
     >
       <template v-for="col in tableColumns">
         <!-- 渲染全局序号列 -->
-        <el-table-column
+        <ELTableColumn
           v-if="col.type === 'globalIndex'"
           fixed="left"
           align="center"
@@ -287,7 +240,7 @@ export default {
               <span>{{ getGlobalIndex($index) }}</span>
             </template>
           </template>
-        </el-table-column>
+        </ELTableColumn>
 
         <!-- 渲染列 -->
         <LdTableColumn v-else :key="col.prop || col.label" :column="col">
@@ -305,7 +258,7 @@ export default {
         </template>
         <template v-else>
           <div v-if="loading"></div>
-          <el-empty v-else v-bind="mergedEmptyOptions">
+          <ELEmpty v-else v-bind="mergedEmptyOptions">
             <template
               #description
               v-if="
@@ -331,21 +284,25 @@ export default {
             >
               <slot name="tableEmptyDefault"></slot>
             </template>
-          </el-empty>
+          </ELEmpty>
         </template>
       </template>
       <template #append>
         <slot name="tableAppend"></slot>
       </template>
-    </el-table>
+    </ELTable>
 
     <div
       v-if="showPagination"
       ref="paginationRef"
       class="ld-table__pagination ld-table__pagination--custom"
-      :class="mergedPaginationOptions && mergedPaginationOptions.align ? 'ld-table__pagination--' + mergedPaginationOptions.align : ''"
+      :class="
+        mergedPaginationOptions && mergedPaginationOptions.align
+          ? 'ld-table__pagination--' + mergedPaginationOptions.align
+          : ''
+      "
     >
-      <el-pagination
+      <ELPagination
         v-bind="mergedPaginationOptions"
         :total="pagination && pagination.total"
         :disabled="loading"
@@ -363,7 +320,7 @@ export default {
         >
           <slot name="tablePaginationDefault"></slot>
         </template>
-      </el-pagination>
+      </ELPagination>
     </div>
   </div>
 </template>

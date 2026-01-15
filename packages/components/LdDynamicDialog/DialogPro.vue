@@ -1,8 +1,12 @@
 <script>
+import { ElDialog } from "element-ui";
 import { dragDialog } from "./drag-dialog";
 
 export default {
   name: "DialogPro",
+  components: {
+    ElDialog,
+  },
   directives: {
     dragDialog,
   },
@@ -25,7 +29,8 @@ export default {
   mounted() {
     this.$nextTick(() => {
       if (this.dialogProps.height) {
-        document.querySelector('.ld-dialog-pro .el-dialog').style.height = this.dialogProps.height;
+        document.querySelector(".ld-dialog-pro .el-dialog").style.height =
+          this.dialogProps.height;
       }
     });
   },
@@ -37,7 +42,7 @@ export default {
 };
 </script>
 <template>
-  <el-dialog
+  <ELDialog
     :visible.sync="visible"
     v-bind="dialogProps"
     v-dragDialog
@@ -51,7 +56,7 @@ export default {
       v-bind="componentProps"
       @close="handleClose"
     ></component>
-  </el-dialog>
+  </ELDialog>
 </template>
 <style>
 .ld-dialog-pro.el-dialog__wrapper {

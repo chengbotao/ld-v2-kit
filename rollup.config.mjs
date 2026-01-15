@@ -30,6 +30,7 @@ export default {
             ...outputConf,
         },
     ],
+    external: ["vue", "element-ui"],
     plugins: [
         clear({ targets: ["dist"] }),
         resolve(),
@@ -38,10 +39,30 @@ export default {
             compileTemplate: true
         }),
         babel({
-            babelHelpers: 'bundled',
+            babelHelpers: 'runtime',
             exclude: 'node_modules/**',
-            presets: ['@babel/preset-env']
+            plugins: ['@babel/plugin-transform-runtime'],
+            presets: [['@babel/preset-env', {
+                useBuiltIns: 'usage',
+                corejs: 3,
+                targets: {
+                    browsers: ['> 1%', 'last 2 versions', 'not dead']
+                }
+            }]]
         }), commonjs(), json(), terser({
+            ecma: 5,
+            compress: {
+                drop_console: true,
+                drop_debugger: true,
+                passes: 2,
+                pure_funcs: ['console.log', 'console.warn']
+            },
+            mangle: {
+                toplevel: true,
+                properties: {
+                    keep_quoted: true
+                }
+            },
             output: {
                 comments: (_, comment) => {
                     const text = comment.value;

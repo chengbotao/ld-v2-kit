@@ -1,6 +1,10 @@
 <script>
+import { ELTableColumn } from "element-ui";
 export default {
   name: "LdTableColumn",
+  components: {
+    ELTableColumn,
+  },
   props: {
     column: {
       type: Object,
@@ -19,10 +23,10 @@ export default {
 };
 </script>
 <template>
-  <el-table-column v-bind="cleanColumnProps(column)">
+  <ELTableColumn v-bind="cleanColumnProps(column)">
     <!-- 递归渲染子列 -->
     <template v-if="column.children && column.children.length > 0">
-      <TableColumn
+      <LdTableColumn
         v-for="childCol in column.children"
         :key="childCol.prop || childCol.label"
         :column="childCol"
@@ -70,5 +74,5 @@ export default {
         }}
       </template>
     </template>
-  </el-table-column>
+  </ELTableColumn>
 </template>
