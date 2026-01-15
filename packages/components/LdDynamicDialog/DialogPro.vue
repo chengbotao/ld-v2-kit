@@ -1,12 +1,8 @@
 <script>
-import { ElDialog } from "element-ui";
 import { dragDialog } from "./drag-dialog";
 
 export default {
   name: "DialogPro",
-  components: {
-    ElDialog,
-  },
   directives: {
     dragDialog,
   },
@@ -42,7 +38,7 @@ export default {
 };
 </script>
 <template>
-  <ELDialog
+  <el-dialog
     :visible.sync="visible"
     v-bind="dialogProps"
     v-dragDialog
@@ -56,7 +52,7 @@ export default {
       v-bind="componentProps"
       @close="handleClose"
     ></component>
-  </ELDialog>
+  </el-dialog>
 </template>
 <style>
 .ld-dialog-pro.el-dialog__wrapper {

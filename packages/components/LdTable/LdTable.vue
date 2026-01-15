@@ -1,5 +1,4 @@
 <script>
-import { ELTable, ELTableColumn, ELPagination, ElEmpty } from "element-ui";
 import { useWindowSize } from "../../mixins/useWindowSize.js";
 import LdTableColumn from "./LdTableColumn.vue";
 
@@ -7,11 +6,7 @@ export default {
   name: "LdTable",
   inheritAttrs: false,
   components: {
-    ELTable,
-    ELTableColumn,
-    ELPagination,
-    ElEmpty,
-    LdTableColumn,
+    "ld-table-column": LdTableColumn,
   },
   mixins: [useWindowSize()],
   props: {
@@ -192,7 +187,7 @@ export default {
     :class="{ 'ld-table--empty': isEmpty }"
     :style="containerHeight"
   >
-    <ELTable
+    <el-table
       ref="elTableRef"
       v-loading="!!loading"
       v-bind="tableProps"
@@ -200,7 +195,7 @@ export default {
     >
       <template v-for="col in tableColumns">
         <!-- 渲染全局序号列 -->
-        <ELTableColumn
+        <el-table-column
           v-if="col.type === 'globalIndex'"
           fixed="left"
           align="center"
@@ -240,17 +235,17 @@ export default {
               <span>{{ getGlobalIndex($index) }}</span>
             </template>
           </template>
-        </ELTableColumn>
+        </el-table-column>
 
         <!-- 渲染列 -->
-        <LdTableColumn v-else :key="col.prop || col.label" :column="col">
+        <ld-table-column v-else :key="col.prop || col.label" :column="col">
           <template
             v-for="(_, slotName) in $scopedSlots"
             #[slotName]="slotProps"
           >
             <slot :name="slotName" v-bind="slotProps" />
           </template>
-        </LdTableColumn>
+        </ld-table-column>
       </template>
       <template #empty>
         <template v-if="$scopedSlots['tableEmpty']">
@@ -258,7 +253,7 @@ export default {
         </template>
         <template v-else>
           <div v-if="loading"></div>
-          <ELEmpty v-else v-bind="mergedEmptyOptions">
+          <el-empty v-else v-bind="mergedEmptyOptions">
             <template
               #description
               v-if="
@@ -284,13 +279,13 @@ export default {
             >
               <slot name="tableEmptyDefault"></slot>
             </template>
-          </ELEmpty>
+          </el-empty>
         </template>
       </template>
       <template #append>
         <slot name="tableAppend"></slot>
       </template>
-    </ELTable>
+    </el-table>
 
     <div
       v-if="showPagination"
@@ -302,7 +297,7 @@ export default {
           : ''
       "
     >
-      <ELPagination
+      <el-pagination
         v-bind="mergedPaginationOptions"
         :total="pagination && pagination.total"
         :disabled="loading"
@@ -320,7 +315,7 @@ export default {
         >
           <slot name="tablePaginationDefault"></slot>
         </template>
-      </ELPagination>
+      </el-pagination>
     </div>
   </div>
 </template>

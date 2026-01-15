@@ -49,19 +49,15 @@ export default {
                     browsers: ['> 1%', 'last 2 versions', 'not dead']
                 }
             }]]
-        }), commonjs(), json(), terser({
-            ecma: 5,
+        }),
+        commonjs(),
+        json(),
+        terser({
             compress: {
                 drop_console: true,
                 drop_debugger: true,
                 passes: 2,
                 pure_funcs: ['console.log', 'console.warn']
-            },
-            mangle: {
-                toplevel: true,
-                properties: {
-                    keep_quoted: true
-                }
             },
             output: {
                 comments: (_, comment) => {
@@ -69,6 +65,6 @@ export default {
                     return text.includes('ld-v2-kit version') || text.includes('Follow me on GitHub! @');
                 }
             }
-        })],
-
+        })
+    ],
 };
