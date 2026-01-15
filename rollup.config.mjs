@@ -51,22 +51,22 @@ export default {
             configFile: './babel.config.js'
         }),
 
-        // terser({
-        //     ecma: 5,
-        //     compress: {
-        //         drop_console: true,
-        //         drop_debugger: true,
-        //         passes: 2,
-        //         pure_funcs: ['console.log', 'console.warn'],
-        //         keep_fnames: true, 
-        //         keep_classnames: true
-        //     },
-        //     output: {
-        //         comments: (_, comment) => {
-        //             const text = comment.value;
-        //             return text.includes('ld-v2-kit version') || text.includes('Follow me on GitHub! @');
-        //         }
-        //     }
-        // })
+        terser({
+            ecma: 5,
+            compress: {
+                drop_console: true,
+                drop_debugger: true,
+                passes: 2,
+                pure_funcs: ['console.log', 'console.warn'],
+                keep_fnames: true, 
+                keep_classnames: true
+            },
+            output: {
+                comments: (_, comment) => {
+                    const text = comment.value;
+                    return text.includes('ld-v2-kit version') || text.includes('Follow me on GitHub! @');
+                }
+            }
+        })
     ],
 };

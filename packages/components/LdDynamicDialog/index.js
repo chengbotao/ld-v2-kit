@@ -1,10 +1,8 @@
+import Vue from 'vue';
 import { deepMerge } from '../../utils/deep-merge';
 import DialogPro from './DialogPro.vue';
 
-// 导入 Vue，确保在所有环境中都能正确引用
-import Vue from 'vue';
 
-// 确保 Vue 是构造函数
 const VueConstructor = typeof Vue === 'function' ? Vue : Vue.default;
 
 const DialogConstructor = VueConstructor.extend(DialogPro);
