@@ -28,7 +28,7 @@ export default {
   mounted() {
     this.$nextTick(() => {
       if (this.dialogProps.height) {
-        document.querySelector(".ld-dialog-pro .el-dialog").style.height =
+        this.$refs.dialogRef.$el.querySelector(".el-dialog").style.height =
           this.dialogProps.height;
       }
     });
@@ -47,6 +47,7 @@ export default {
     v-dragDialog
     @close="handleClose('_close')"
     class="ld-dialog-pro"
+    role="dialogRef"
     :modal="false"
   >
     <component
