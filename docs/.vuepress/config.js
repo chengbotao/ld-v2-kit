@@ -117,6 +117,10 @@ module.exports = {
             title: 'LdTable 表格',
             path: '/LdTable/',
           },
+          {
+            title: 'useDialog 弹窗',
+            path: '/LdDynamicDialog/',
+          },
         ]
       }
     ],

@@ -44,7 +44,7 @@ export default {
   <el-dialog
     :visible.sync="visible"
     v-bind="dialogProps"
-    v-dragDialog
+    v-dragDialog="{ enableDrag: dialogProps.enableDrag !== false }"
     @close="handleClose('_close')"
     class="ld-dialog-pro"
     role="dialogRef"

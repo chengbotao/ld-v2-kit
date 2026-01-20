@@ -33,5 +33,5 @@ export default {
 };
 </script>
 <template>
-  <ld-table :data="tableData" :columns="tableColumns"></ld-table>
+  <ld-table :data="tableData" :columns="tableColumns" :pagination="false"></ld-table>
 </template>

@@ -30,8 +30,8 @@ export default {
       ],
       pagination: {
         current: 1,
-        size: 10,
-        total: 2,
+        size: 100,
+        total: 500,
       },
     };
   },

@@ -26,6 +26,7 @@ export default {
     <ld-table 
       :data="tableData" 
       :columns="tableColumns"
+      :pagination="false"
     ></ld-table>
     <div style="margin-top: 10px; color: #999;">
       空状态演示：当表格数据为空时，会显示空状态提示

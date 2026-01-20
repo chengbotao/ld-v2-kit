@@ -15,6 +15,7 @@ LdTable 是基于 Element UI 的 `el-table` 组件封装的高级表格组件，
 ## 基本用法
 
 :::demo LdTable/demos/basic
+表格基础用法
 :::
 
 ## 带分页的表格
@@ -56,6 +57,7 @@ LdTable 是基于 Element UI 的 `el-table` 组件封装的高级表格组件，
 | `border` | 是否显示边框 | Boolean | - | true/false |
 | `size` | 表格尺寸 | String | - | medium/small/mini |
 | `height` | 表格高度 | String/Number | - | - |
+| 其他配置 | 支持 Element UI el-table 的所有配置 | - |
 
 ### Events
 
@@ -91,106 +93,8 @@ LdTable 是基于 Element UI 的 `el-table` 组件封装的高级表格组件，
 | `[prop]-header` | 自定义列头插槽，[prop] 为列的 prop 值 |
 | `[prop]` | 自定义列内容插槽，[prop] 为列的 prop 值 |
 
-## 示例代码
-
-### 基本表格
-
-```vue
-<template>
-  <ld-table :data="tableData" :columns="tableColumns"></ld-table>
-</template>
-
-<script>
-export default {
-  data() {
-    return {
-      tableData: [
-        {
-          name: "张三",
-          age: 18,
-          sex: "男",
-        },
-        {
-          name: "李四",
-          age: 20,
-          sex: "女",
-        },
-      ],
-      tableColumns: [
-        {
-          prop: "name",
-          label: "姓名",
-        },
-        {
-          prop: "age",
-          label: "年龄",
-        },
-        {
-          prop: "sex",
-          label: "性别",
-        },
-      ],
-    };
-  },
-};
-</script>
-```
-
-### 带分页的表格
-
-```vue
-<template>
-  <ld-table 
-    :data="tableData" 
-    :columns="tableColumns"
-    :pagination="pagination"
-  ></ld-table>
-</template>
-
-<script>
-export default {
-  data() {
-    return {
-      tableData: [
-        {
-          name: "张三",
-          age: 18,
-          sex: "男",
-        },
-        {
-          name: "李四",
-          age: 20,
-          sex: "女",
-        },
-      ],
-      tableColumns: [
-        {
-          prop: "name",
-          label: "姓名",
-        },
-        {
-          prop: "age",
-          label: "年龄",
-        },
-        {
-          prop: "sex",
-          label: "性别",
-        },
-      ],
-      pagination: {
-        current: 1,
-        size: 10,
-        total: 2,
-      },
-    };
-  },
-};
-</script>
-```
-
 ## 注意事项
 
 1. 当使用 `pagination` 功能时，需要传入正确的 `current`、`size` 和 `total` 值
 2. 当使用 `globalIndex` 类型的列时，会自动计算全局序号，不受分页影响
 3. 当表格数据为空且非加载状态时，会显示空状态组件
-4. 组件支持响应式布局，会根据屏幕宽度自动调整分页组件的显示

@@ -59,8 +59,9 @@ module.exports = (md, options) => {
 
         try {
           rawSource = fs.readFileSync(filePath, 'utf-8');
+          const renderResult = md.render(`\`\`\`${fileExtension.substring(1)}\n${rawSource}\`\`\``) || {};
           source = encodeURIComponent(
-            md.render(`\`\`\`${fileExtension.substring(1)}\n${rawSource}\`\`\``),
+            renderResult.html,
           );
         } catch (error) {
           throw new Error(`Failed to read source file: ${filePath}. Error: ${error}`);
@@ -69,7 +70,8 @@ module.exports = (md, options) => {
         let tokenIdx = idx + 1;
         while (tokens[tokenIdx]?.type !== 'container_demo_close') {
           if (tokens[tokenIdx].content) {
-            description += md.render(tokens[tokenIdx].content || '');
+            const renderResult = md.render(tokens[tokenIdx].content || '') || {};
+            description += renderResult.html;
           }
           tokenIdx++;
         }

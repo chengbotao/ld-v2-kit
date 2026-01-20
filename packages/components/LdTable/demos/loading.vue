@@ -2,18 +2,7 @@
 export default {
   data() {
     return {
-      tableData: [
-        {
-          name: "张三",
-          age: 18,
-          sex: "男",
-        },
-        {
-          name: "李四",
-          age: 20,
-          sex: "女",
-        },
-      ],
+      tableData: [],
       tableColumns: [
         {
           prop: "name",
@@ -28,23 +17,41 @@ export default {
           label: "性别",
         },
       ],
-      loading: true,
+      loading: false,
     };
   },
-  mounted() {
-    // 模拟加载过程
-    setTimeout(() => {
-      this.loading = false;
-    }, 2000);
+  methods: {
+    simulateLoading() {
+      // 清空表格数据
+      this.tableData = [];
+      this.loading = true;
+      setTimeout(() => {
+        this.tableData = [
+          {
+            name: "张三",
+            age: 18,
+            sex: "男",
+          },
+          {
+            name: "李四",
+            age: 20,
+            sex: "女",
+          },
+        ];
+        this.loading = false;
+      }, 2000);
+    },
   },
 };
 </script>
 <template>
   <div>
+    <el-button type="primary" @click="simulateLoading">模拟加载</el-button>
     <ld-table 
       :data="tableData" 
       :columns="tableColumns"
       :loading="loading"
+      :pagination="false"
     ></ld-table>
     <div style="margin-top: 10px; color: #999;">
       加载状态演示：表格会显示加载动画，2秒后消失

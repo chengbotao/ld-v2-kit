@@ -1,5 +1,9 @@
 export const dragDialog = {
   bind(el, binding) {
+    // 检查是否启用拖拽，默认是可拖拽的
+    const enableDrag = binding.value?.enableDrag !== false;
+    if (!enableDrag) return;
+
     const dialogHeaderEl = el.querySelector('.el-dialog__header');
     const dragDom = el.querySelector('.el-dialog');
 

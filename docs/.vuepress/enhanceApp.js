@@ -28,7 +28,6 @@ export default ({
       requireContext.keys().forEach(key => {
         // 转换路径格式，例如 './LdTable/demos/basic.vue' 转换为 'LdTable/demos/basic'
         const demoPath = key.replace(/^\.\//, '').replace(/\.vue$/, '');
-        console.log('Loaded demo module:', demoPath);
         // 创建动态导入函数
         demoModules[demoPath] = () => Promise.resolve(requireContext(key).default);
       });
