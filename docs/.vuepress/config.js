@@ -27,7 +27,7 @@ module.exports = {
       {
         rel: 'icon',
         type: 'image/png',
-        href: `${SITE_BASE}favicon/favicon-96x96.png`,
+        href: `favicon/favicon-96x96.png`,
         sizes: '96x96',
       },
     ],
@@ -39,7 +39,7 @@ module.exports = {
         href: `${SITE_BASE}favicon/favicon.svg`,
       },
     ],
-    ['link', { rel: 'shortcut icon', href: `${SITE_BASE}favicon/favicon.ico` }],
+    ['link', { rel: 'shortcut icon', href: `favicon/favicon.ico` }],
     [
       'link',
       {
@@ -48,30 +48,30 @@ module.exports = {
         sizes: '180x180',
       },
     ],
-    ['link', { rel: 'manifest', href: `${SITE_BASE}favicon/site.webmanifest` }],
+    ['link', { rel: 'manifest', href: `favicon/site.webmanifest` }],
 
     [
       'link',
       {
         rel: 'stylesheet',
-        href: `${SITE_BASE}fontawesome/css/fontawesome.css`,
+        href: `fontawesome/css/fontawesome.css`,
       },
     ],
-    ['link', { rel: 'stylesheet', href: `${SITE_BASE}fontawesome/css/brands.css` }],
-    ['link', { rel: 'stylesheet', href: `${SITE_BASE}fontawesome/css/solid.css` }],
-    ['link', { rel: 'stylesheet', href: `${SITE_BASE}fontawesome/css/sharp-thin.css` }],
+    ['link', { rel: 'stylesheet', href: `fontawesome/css/brands.css` }],
+    ['link', { rel: 'stylesheet', href: `fontawesome/css/solid.css` }],
+    ['link', { rel: 'stylesheet', href: `fontawesome/css/sharp-thin.css` }],
     [
       'link',
       {
         rel: 'stylesheet',
-        href: `${SITE_BASE}fontawesome/css/duotone-thin.css`,
+        href: `fontawesome/css/duotone-thin.css`,
       },
     ],
     [
       'link',
       {
         rel: 'stylesheet',
-        href: `${SITE_BASE}fontawesome/css/sharp-duotone-thin.css`,
+        href: `fontawesome/css/sharp-duotone-thin.css`,
       },
     ],
   ],
@@ -107,7 +107,7 @@ module.exports = {
   },
 
   themeConfig: {
-    logo: `${SITE_BASE}logo.png`,
+    logo: `logo.png`,
     sidebar: [
       {
         title: '组件',
