@@ -1,0 +1,4 @@
+---
+home: true
+redirect: /LdTable/
+---
