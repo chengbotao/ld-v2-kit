@@ -26,16 +26,19 @@ LdTable 是基于 Element UI 的 `el-table` 组件封装的高级表格组件，
 ## 带加载状态的表格
 
 :::demo LdTable/demos/loading
+加载状态演示：表格会显示加载动画，2秒后消失
 :::
 
 ## 带空状态的表格
 
 :::demo LdTable/demos/empty
+空状态演示：当表格数据为空时，会显示空状态提示
 :::
 
 ## 带全局序号的表格
 
 :::demo LdTable/demos/index
+序号列演示：左侧为全局序号（从1开始递增），中间为本地序号（每页从1开始）
 :::
 
 ## API

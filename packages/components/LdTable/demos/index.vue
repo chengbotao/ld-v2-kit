@@ -62,23 +62,18 @@ export default {
       console.log(current);
       this.tableData = tableData.slice(
         (current - 1) * this.pagination.size,
-        current * this.pagination.size
+        current * this.pagination.size,
       );
     },
   },
 };
 </script>
 <template>
-  <div>
-    <ld-table
-      :data="tableData"
-      :columns="tableColumns"
-      :pagination="pagination"
-      :pagination-options="paginationOptions"
-      @pagination:current-change="handleCurrentChange"
-    ></ld-table>
-    <div style="margin-top: 10px; color: #999">
-      序号列演示：左侧为全局序号（从1开始递增），中间为本地序号（每页从1开始）
-    </div>
-  </div>
+  <ld-table
+    :data="tableData"
+    :columns="tableColumns"
+    :pagination="pagination"
+    :pagination-options="paginationOptions"
+    @pagination:current-change="handleCurrentChange"
+  ></ld-table>
 </template>

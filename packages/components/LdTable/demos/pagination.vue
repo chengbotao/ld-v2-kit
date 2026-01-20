@@ -48,13 +48,11 @@ export default {
 };
 </script>
 <template>
-  <div>
-    <ld-table 
-      :data="tableData" 
-      :columns="tableColumns"
-      :pagination="pagination"
-      @pagination:size-change="handleSizeChange"
-      @pagination:current-change="handleCurrentChange"
-    ></ld-table>
-  </div>
+  <ld-table
+    :data="tableData"
+    :columns="tableColumns"
+    :pagination="pagination"
+    @pagination:size-change="handleSizeChange"
+    @pagination:current-change="handleCurrentChange"
+  ></ld-table>
 </template>

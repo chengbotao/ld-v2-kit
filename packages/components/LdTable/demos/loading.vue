@@ -47,14 +47,11 @@ export default {
 <template>
   <div>
     <el-button type="primary" @click="simulateLoading">模拟加载</el-button>
-    <ld-table 
-      :data="tableData" 
+    <ld-table
+      :data="tableData"
       :columns="tableColumns"
       :loading="loading"
       :pagination="false"
     ></ld-table>
-    <div style="margin-top: 10px; color: #999;">
-      加载状态演示：表格会显示加载动画，2秒后消失
-    </div>
   </div>
 </template>
