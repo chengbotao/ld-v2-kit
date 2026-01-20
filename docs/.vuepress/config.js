@@ -27,7 +27,7 @@ module.exports = {
       {
         rel: 'icon',
         type: 'image/png',
-        href: `favicon/favicon-96x96.png`,
+        href: `/favicon/favicon-96x96.png`,
         sizes: '96x96',
       },
     ],
@@ -36,42 +36,42 @@ module.exports = {
       {
         rel: 'icon',
         type: 'image/svg+xml',
-        href: `${SITE_BASE}favicon/favicon.svg`,
+        href: `/favicon/favicon.svg`,
       },
     ],
-    ['link', { rel: 'shortcut icon', href: `favicon/favicon.ico` }],
+    ['link', { rel: 'shortcut icon', href: `/favicon/favicon.ico` }],
     [
       'link',
       {
         rel: 'apple-touch-icon',
-        href: `${SITE_BASE}favicon/apple-touch-icon.png`,
+        href: `/favicon/apple-touch-icon.png`,
         sizes: '180x180',
       },
     ],
-    ['link', { rel: 'manifest', href: `favicon/site.webmanifest` }],
+    ['link', { rel: 'manifest', href: `/favicon/site.webmanifest` }],
 
     [
       'link',
       {
         rel: 'stylesheet',
-        href: `fontawesome/css/fontawesome.css`,
+        href: `/fontawesome/css/fontawesome.css`,
       },
     ],
-    ['link', { rel: 'stylesheet', href: `fontawesome/css/brands.css` }],
-    ['link', { rel: 'stylesheet', href: `fontawesome/css/solid.css` }],
-    ['link', { rel: 'stylesheet', href: `fontawesome/css/sharp-thin.css` }],
+    ['link', { rel: 'stylesheet', href: `/fontawesome/css/brands.css` }],
+    ['link', { rel: 'stylesheet', href: `/fontawesome/css/solid.css` }],
+    ['link', { rel: 'stylesheet', href: `/fontawesome/css/sharp-thin.css` }],
     [
       'link',
       {
         rel: 'stylesheet',
-        href: `fontawesome/css/duotone-thin.css`,
+        href: `/fontawesome/css/duotone-thin.css`,
       },
     ],
     [
       'link',
       {
         rel: 'stylesheet',
-        href: `fontawesome/css/sharp-duotone-thin.css`,
+        href: `/fontawesome/css/sharp-duotone-thin.css`,
       },
     ],
   ],
