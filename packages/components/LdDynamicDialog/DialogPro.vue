@@ -19,6 +19,10 @@ export default {
       type: Object,
       default: () => ({}),
     },
+    titleSlot: {
+      type: [Function, Object],
+      default: null,
+    },
   },
   data() {
     return {
@@ -50,6 +54,9 @@ export default {
     role="dialogRef"
     :modal="false"
   >
+    <template v-if="titleSlot" slot="title">
+      <component :is="titleSlot" v-bind="componentProps" />
+    </template>
     <component
       ref="componentRef"
       :is="componentInstance"

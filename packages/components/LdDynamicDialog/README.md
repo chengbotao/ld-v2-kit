@@ -31,6 +31,11 @@
 :::demo LdDynamicDialog/demos/async
 :::
 
+## 标题插槽示例
+
+:::demo LdDynamicDialog/demos/title-slot
+:::
+
 ### useDialog(options)
 
 #### 参数
@@ -40,6 +45,7 @@
 | `componentInstance` | 要在对话框中显示的组件实例 | Object/Function | - | **必需** |
 | `componentProps` | 传递给组件的属性 | Object | {} | - |
 | `dialogProps` | 传递给 el-dialog 的属性 | Object | 见下文 | - |
+| `titleSlot` | 自定义标题插槽，支持函数或组件对象 | Function/Object | null | - |
 | `target` | 对话框挂载的目标元素 | HTMLElement | document.body | - |
 | `close` | 关闭回调函数 | Function | - | - |
 
