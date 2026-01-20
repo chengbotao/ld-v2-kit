@@ -59,21 +59,21 @@ module.exports = {
     ],
     ['link', { rel: 'stylesheet', href: `/fontawesome/css/brands.css` }],
     ['link', { rel: 'stylesheet', href: `/fontawesome/css/solid.css` }],
-    ['link', { rel: 'stylesheet', href: `/fontawesome/css/sharp-thin.css` }],
-    [
-      'link',
-      {
-        rel: 'stylesheet',
-        href: `/fontawesome/css/duotone-thin.css`,
-      },
-    ],
-    [
-      'link',
-      {
-        rel: 'stylesheet',
-        href: `/fontawesome/css/sharp-duotone-thin.css`,
-      },
-    ],
+    // ['link', { rel: 'stylesheet', href: `/fontawesome/css/sharp-thin.css` }],
+    // [
+    //   'link',
+    //   {
+    //     rel: 'stylesheet',
+    //     href: `/fontawesome/css/duotone-thin.css`,
+    //   },
+    // ],
+    // [
+    //   'link',
+    //   {
+    //     rel: 'stylesheet',
+    //     href: `/fontawesome/css/sharp-duotone-thin.css`,
+    //   },
+    // ],
   ],
   additionalPages() {
     const fs = require('fs');
