@@ -51,8 +51,7 @@ export default {
     v-dragDialog="{ enableDrag: dialogProps.enableDrag !== false }"
     @close="handleClose('_close')"
     class="ld-dialog-pro"
-    role="dialogRef"
-    :modal="false"
+    ref="dialogRef"
   >
     <template v-if="titleSlot" slot="title">
       <component :is="titleSlot" v-bind="componentProps" />
