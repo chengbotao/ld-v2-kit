@@ -5,6 +5,9 @@ const version = pkg.version;
 
 // 导入组件
 import { LdTable, LdTableColumn } from "./components/LdTable";
+import { LdDynamicButtonGroup } from "./components/LdDynamicButtonGroup";
+
+
 
 // 导入函数式组件
 import { useDialog } from "./components/LdDynamicDialog";
@@ -18,7 +21,8 @@ import { dateFormatter } from "./utils/date-formatter";
 // 组件列表
 const components = [
     LdTable,
-    LdTableColumn
+    LdTableColumn,
+    LdDynamicButtonGroup
 ];
 
 /**
@@ -43,6 +47,7 @@ export {
     version,
     LdTable,
     LdTableColumn,
+    LdDynamicButtonGroup,
     useDialog,
     useWindowSize,
     dateFormatter
@@ -54,6 +59,7 @@ export default {
     version,
     LdTable,
     LdTableColumn,
+    LdDynamicButtonGroup,
     useDialog,
     useWindowSize,
     dateFormatter

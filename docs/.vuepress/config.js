@@ -118,11 +118,27 @@ module.exports = {
             path: '/LdTable/',
           },
           {
+            title: 'LdDynamicButtonGroup 动态按钮组',
+            path: '/LdDynamicButtonGroup/',
+          },
+        ]
+      },
+      {
+        title: '函数式组件',
+        collapsable: false,
+        children: [
+          {
             title: 'useDialog 弹窗',
             path: '/LdDynamicDialog/',
           },
         ]
-      }
+      },
+      {
+        title: '工具函数',
+        collapsable: false,
+        children: [
+        ]
+      },
     ],
   },
   markdown: {
