@@ -23,14 +23,20 @@ export default ({
     const demoModules = {};
 
     try {
-      const requireContext = require.context('../../packages/components', true, /demos\/.*\.vue$/);
-
-      requireContext.keys().forEach(key => {
-        // 转换路径格式，例如 './LdTable/demos/basic.vue' 转换为 'LdTable/demos/basic'
-        const demoPath = key.replace(/^\.\//, '').replace(/\.vue$/, '');
-        // 创建动态导入函数
-        demoModules[demoPath] = () => Promise.resolve(requireContext(key).default);
+      // 加载 components 目录下的 demos
+      const componentsContext = require.context('../../packages/components', true, /demos\/.*\.vue$/);
+      componentsContext.keys().forEach(key => {
+        const demoPath = 'components/' + key.replace(/^\.\//, '').replace(/\.vue$/, '');
+        demoModules[demoPath] = () => Promise.resolve(componentsContext(key).default);
       });
+
+      // 加载 utils 目录下的 demos
+      const utilsContext = require.context('../../packages/utils', true, /demos\/.*\.vue$/);
+      utilsContext.keys().forEach(key => {
+        const demoPath = 'utils/' + key.replace(/^\.\//, '').replace(/\.vue$/, '');
+        demoModules[demoPath] = () => Promise.resolve(utilsContext(key).default);
+      });
+
       console.log('Total demo modules:', Object.keys(demoModules).length);
     } catch (e) {
       console.error('Failed to load demo modules:', e);

@@ -80,6 +80,7 @@ module.exports = {
     const path = require('path');
 
     const componentsDir = path.resolve(__dirname, '../../packages/components');
+    const utilsDir = path.resolve(__dirname, '../../packages/utils');
     const additionalPages = [];
 
     try {
@@ -100,6 +101,14 @@ module.exports = {
           }
         }
       });
+      // 处理 utils 目录
+      const readmePath = path.join(utilsDir, 'README.md');
+      if (fs.existsSync(readmePath)) {
+        additionalPages.push({
+          path: '/utils/',
+          filePath: readmePath
+        });
+      }
     } catch (error) {
       console.warn('Failed to scan components directory:', error);
     }
@@ -135,16 +144,15 @@ module.exports = {
       },
       {
         title: '工具函数',
-        collapsable: false,
-        children: [
-        ]
+        collapsable: true,
+        path: '/utils/'
       },
     ],
   },
   markdown: {
     extendMarkdown: md => {
       md.use(mdContainerDemo, {
-        docRoot: path.resolve(__dirname, '../../packages/components'),
+        docRoot: path.resolve(__dirname, '../../packages'),
       });
     }
   },

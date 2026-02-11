@@ -13,27 +13,27 @@
 
 ## 基本用法
 
-:::demo LdDynamicDialog/demos/basic
+:::demo components/LdDynamicDialog/demos/basic
 :::
 
 ## 表单对话框
 
-:::demo LdDynamicDialog/demos/form
+:::demo components/LdDynamicDialog/demos/form
 :::
 
 ## 使用 H 函数
 
-:::demo LdDynamicDialog/demos/h-function
+:::demo components/LdDynamicDialog/demos/h-function
 :::
 
 ## 异步加载组件
 
-:::demo LdDynamicDialog/demos/async
+:::demo components/LdDynamicDialog/demos/async
 :::
 
 ## 标题插槽示例
 
-:::demo LdDynamicDialog/demos/title-slot
+:::demo components/LdDynamicDialog/demos/title-slot
 :::
 
 ### useDialog(options)

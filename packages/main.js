@@ -17,6 +17,9 @@ import { useWindowSize } from "./mixins/useWindowSize";
 
 // 导入工具函数
 import { dateFormatter } from "./utils/date-formatter";
+import { clipboard } from "./utils/clipboard";
+
+
 
 // 组件列表
 const components = [
@@ -50,7 +53,8 @@ export {
     LdDynamicButtonGroup,
     useDialog,
     useWindowSize,
-    dateFormatter
+    dateFormatter,
+    clipboard
 };
 
 // 默认导出
@@ -62,5 +66,6 @@ export default {
     LdDynamicButtonGroup,
     useDialog,
     useWindowSize,
-    dateFormatter
+    dateFormatter,
+    clipboard
 };

@@ -13,19 +13,19 @@ LdDynamicButtonGroup 是一个基于 Element UI 按钮组件封装的动态按�
 
 ## 基本用法
 
-:::demo LdDynamicButtonGroup/demos/basic
+:::demo components/LdDynamicButtonGroup/demos/basic
 默认最多显示3个按钮，超出部分会显示在下拉菜单中
 :::
 
 ## 自定义下拉按钮
 
-:::demo LdDynamicButtonGroup/demos/custom-dropdown
+:::demo components/LdDynamicButtonGroup/demos/custom-dropdown
 通过 dropdown 插槽自定义下拉按钮的样式和内容
 :::
 
 ## 使用插槽
 
-:::demo LdDynamicButtonGroup/demos/slots
+:::demo components/LdDynamicButtonGroup/demos/slots
 通过插槽为每个按钮自定义内容，可添加图标等
 :::
 
